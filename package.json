@@ -3,6 +3,8 @@
   "displayName": "vscode-postfix-completion",
   "description": "vscode postfix completion",
   "publisher": "gorpher",
+  "repository": {"url": "https://github.com/gorpher/vscode-postfix-completion"},
+  "icon": "images/logo.png",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.60.0"
@@ -70,7 +72,9 @@
     "watch": "tsc -watch -p ./",
     "pretest": "yarn run compile && yarn run lint",
     "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "test": "node ./out/test/runTest.js",
+    "deploy": "vsce publish",
+    "package": "vsce package"
   },
   "devDependencies": {
     "@types/glob": "^7.1.3",
@@ -81,10 +85,12 @@
     "@typescript-eslint/eslint-plugin": "^4.26.0",
     "@typescript-eslint/parser": "^4.26.0",
     "eslint": "^7.27.0",
-    "glob": "^7.1.7",
-    "lodash": "^4.17.21",
     "mocha": "^8.4.0",
     "typescript": "^4.3.2",
     "vscode-test": "^1.5.2"
+  },
+  "dependencies": {
+    "glob": "^7.1.7",
+    "lodash": "^4.17.21"
   }
 }

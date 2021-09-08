@@ -24,11 +24,9 @@ function isPostfixTemplate(props: any) {
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export function ComplectionTemplate(...templates: ComplectionTemplateDefinition[]) {
   return (c: Constructor) => {
-    console.log('load template',c)
-    
     if (isPostfixTemplate(c.prototype) && c.prototype instanceof BaseTemplate) {
       for (const template of templates) {
-        console.log("loading template ==> ", "[", c.name, "]", template)
+        // console.log("loading template ==> ", "[", c.name, "]", template)
         iocContainer.loadTemplates(template.language).push(new c(template.language, template.name, template.description, template.body))
       }
     }
@@ -41,6 +39,8 @@ class IocContainer {
   }
 
   public templates() {
+    if (this.instanceContainer.postfixTemplates) {
+    }
     return this.instanceContainer.postfixTemplates
   }
 
